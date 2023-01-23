@@ -68,10 +68,15 @@ function App() {
       oldprice: "$40.00",
     },
   ];
+
+  let [cart, setcart] = useState("0")
+
   return (
     <div className="App">
     
-      <NavDetails />
+      <NavDetails 
+       setcart = {setcart}
+      />
       <div className="container">
       {data.map((iteam,idx)=>
       (
@@ -83,6 +88,7 @@ function App() {
         oldprice = {iteam.oldprice}
         id = {idx}
         backslash = {iteam.backslash}
+        setcart = {setcart}
         />
       )
       
@@ -98,7 +104,7 @@ function App() {
 
 export default App;
 
-function NavDetails() {
+function NavDetails(props) {
   
   return (
     <div id ="key">
@@ -127,7 +133,7 @@ function NavDetails() {
                   </NavDropdown.Item>
                 </NavDropdown>
               </Nav>
-              <div className="cart"> 🛒 Cart<span className="cartvalue">{cart}</span></div>
+              <div className="cart"> 🛒 Cart<span className="cartvalue">{props.setcart}</span></div>
             </Navbar.Collapse>
           </Container>
         </Navbar>
@@ -142,7 +148,7 @@ function NavDetails() {
   );
 }
 
-var cart = 0
+
 
 
 function CartDetails(props) {
