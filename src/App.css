@@ -47,6 +47,7 @@
   border-radius: 0.5rem;
   width: 10rem;
   height: 2.5rem;
+  margin: auto;
 }
 .footer{
   border: 1px solid black;
